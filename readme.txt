@@ -1,1 +1,1 @@
-it's a project for my study class.
+it's a project for my study class!
