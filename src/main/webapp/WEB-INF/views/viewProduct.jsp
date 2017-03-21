@@ -20,17 +20,15 @@
                     <h3>${product.productName}</h3>
                     <p>${product.productDescription}</p>
                     <p>
-                        <strong>Manufacturer</strong>${product.productManufacturer}
+                        <strong>Manufacturer</strong> : ${product.productManufacturer}
                     </p>
                     <p>
-                        <strong>Category</strong>${product.productCategory}
+                        <strong>Category</strong> : ${product.productCategory}
                     </p>
                     <p>
-                        <strong>Product Condition</strong>${product.productCondition}
+                        <strong>Condition</strong> : ${product.productCondition}
                     </p>
-                    <p>
-                        <strong>Product Price</strong>${product.productPrice} USD
-                    </p>
+                    <h4>${product.productPrice} USD</h4>
                 </div>
             </div>
         </div>

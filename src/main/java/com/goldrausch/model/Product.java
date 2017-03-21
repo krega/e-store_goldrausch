@@ -70,11 +70,11 @@ public class Product {
         this.productStatus = productStatus;
     }
 
-    public int getUnitStock() {
+    public int getUnitInStock() {
         return unitStock;
     }
 
-    public void setUnitStock(int unitStock) {
+    public void setUnitInStock(int unitStock) {
         this.unitStock = unitStock;
     }
 

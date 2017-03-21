@@ -1,6 +1,7 @@
 package com.goldruasch.contorller;
 
-import com.goldrausch.dao.ProductDao;
+
+import com.dao.ProductDao;
 import com.goldrausch.model.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,11 +38,11 @@ public class HomeController {
         return "productList";
     }
 
-    @RequestMapping("/productList/viewProduct/(productId)")
-    public String viewProduct(@PathVariable String productId, Model model) throws IOException {
+    @RequestMapping("/productList/viewProduct/{productId}")
+    public String viewProduct(@PathVariable String productId, Model model) throws IOException{
 
-            Product product = productDao.getProductById(productId);
-            model.addAttribute(product);
+        Product product = productDao.getProductById(productId);
+        model.addAttribute(product);
 
         return "viewProduct";
     }
