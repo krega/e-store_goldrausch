@@ -1,9 +1,18 @@
 package com.goldrausch.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by kamil on 19.03.2017.
  */
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String productId;
     private String productName;
     private String productCategory;
