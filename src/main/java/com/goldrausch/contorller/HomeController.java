@@ -1,6 +1,5 @@
 package com.goldrausch.contorller;
 
-
 import com.goldrausch.dao.ProductDao;
 import com.goldrausch.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,6 @@ import java.util.List;
 /**
  * Created by kamil on 18.03.2017.
  */
-
-
-
-
 
 @Controller
 public class HomeController {
@@ -40,11 +35,23 @@ public class HomeController {
     }
 
     @RequestMapping("/productList/viewProduct/{productId}")
-    public String viewProduct(@PathVariable String productId, Model model) throws IOException{
+    public String viewProduct(@PathVariable String productId, Model model) throws IOException {
 
         Product product = productDao.getProductById(productId);
         model.addAttribute(product);
 
         return "viewProduct";
+    }
+    @RequestMapping("/admin")
+    public String adminPage()
+    {
+        return "admin";
+    }
+    @RequestMapping("/admin/productInventory")
+    public  String productInventory(Model model)
+    {
+        List<Product> products = productDao.getAllProducts();
+        model.addAttribute("products", products);
+        return "productInventory";
     }
 }

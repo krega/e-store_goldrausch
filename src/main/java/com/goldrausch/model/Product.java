@@ -22,6 +22,7 @@ public class Product {
     private String productStatus;
     private int unitStock;
     private String productManufacturer;
+
     public String getProductId() {
         return productId;
     }
