@@ -1,9 +1,8 @@
 package com.goldrausch.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
 
 /**
  * Created by kamil on 19.03.2017.
@@ -22,6 +21,24 @@ public class Product {
     private String productStatus;
     private int unitStock;
     private String productManufacturer;
+    @Transient
+    private MultipartFile productImage;
+
+    public int getUnitStock() {
+        return unitStock;
+    }
+
+    public void setUnitStock(int unitStock) {
+        this.unitStock = unitStock;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
 
     public String getProductId() {
         return productId;
