@@ -6,6 +6,7 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
+
             <h1>All Products</h1>
 
             <p class="lead">Checkout all the awesome products available now!</p>
