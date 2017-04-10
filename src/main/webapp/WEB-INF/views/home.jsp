@@ -29,7 +29,8 @@
                  alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Now you can order to every country in europe! </h1>
+
+                    <h1><font color="red">Now you can order to every country in europe! </font></h1>
                     <p>So many to choose from, take your pick now! You can never go wrong with a well thought out personalized gift.</p>
 
                 </div>
