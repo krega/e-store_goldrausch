@@ -2,6 +2,7 @@ package com.goldrausch.dao.impl;
 
 import com.goldrausch.dao.CartDao;
 import com.goldrausch.model.Cart;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
 /**
  * Created by kamil on 10.04.2017.
  */
+@Repository
 public class CartDaoImpl implements CartDao {
     private Map<String, Cart> listOfCarts;
 
