@@ -1,19 +1,48 @@
 package com.goldrausch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Created by kamil on 10.04.2017.
  */
-public class CartItem {
+@Entity
+public class CartItem implements Serializable{
 
+    private static final long serialVersionUID = -904360230041854157L;
+
+    @Id
+    @GeneratedValue
+    private int cartItemId;
+
+    @ManyToOne
+    @JoinColumn(name = "cartId")
+    @JsonIgnore
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "productId")
     private Product product;
+
     private int quantity;
     private double totalPrice;
-    public CartItem(){}
 
-    public CartItem(Product product, int quantity, double totalPrice) {
-        this.product = product;
-        this.quantity = quantity;
-        this.totalPrice = totalPrice;
+    public int getCartItemId() {
+        return cartItemId;
+    }
+
+    public void setCartItemId(int cartItemId) {
+        this.cartItemId = cartItemId;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Product getProduct() {
@@ -40,4 +69,3 @@ public class CartItem {
         this.totalPrice = totalPrice;
     }
 }
-

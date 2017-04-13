@@ -1,58 +1,58 @@
 package com.goldrausch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by kamil on 19.03.2017.
  */
 
 @Entity
-public class Product {
+public class Product implements Serializable{
+
+    private static final long serialVersionUID = -3532377236419382983L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String productId;
-    @NotEmpty(message = " The product must not be null.")
+    private int productId;
+
+    @NotEmpty (message = "The product name must not be null.")
+
     private String productName;
     private String productCategory;
     private String productDescription;
-    @Min(value = 0, message = " The product price must not be less than zero.")
+
+    @Min(value = 0, message = "The product price must no be less then zero.")
     private double productPrice;
     private String productCondition;
     private String productStatus;
-    @Min(value = 0, message =" The product unit must not be less than zero. " )
-    private int unitStock;
+
+    @Min(value = 0, message = "The product unit must not be less than zero.")
+    private int unitInStock;
     private String productManufacturer;
+
     @Transient
     private MultipartFile productImage;
 
-    public int getUnitStock() {
-        return unitStock;
-    }
 
-    public void setUnitStock(int unitStock) {
-        this.unitStock = unitStock;
-    }
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
 
-    public MultipartFile getProductImage() {
-        return productImage;
-    }
 
-    public void setProductImage(MultipartFile productImage) {
-        this.productImage = productImage;
-    }
-
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
-
 
     public String getProductName() {
         return productName;
@@ -103,11 +103,11 @@ public class Product {
     }
 
     public int getUnitInStock() {
-        return unitStock;
+        return unitInStock;
     }
 
-    public void setUnitInStock(int unitStock) {
-        this.unitStock = unitStock;
+    public void setUnitInStock(int unitInStock) {
+        this.unitInStock = unitInStock;
     }
 
     public String getProductManufacturer() {
@@ -117,6 +117,21 @@ public class Product {
     public void setProductManufacturer(String productManufacturer) {
         this.productManufacturer = productManufacturer;
     }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
+
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
+    }
 }
-
-
